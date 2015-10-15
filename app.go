@@ -12,7 +12,7 @@ func main() {
 	mux := mux.NewRouter()
 	mux.HandleFunc("/", homeHandler)
 	mux.HandleFunc("/data/{food}", dataHandler)
-	mux.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/static/{folder}/{file}", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, r.URL.Path[1:])
 	})
 
