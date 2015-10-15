@@ -1,4 +1,7 @@
-$( "form" ).submit(function( event ) {
-    alert( "Handler for .submit() called." );
-    event.preventDefault();
-});
+var viewModel = {
+    searchFood: function(formElement) {
+                    alert("Form submitted: " + formElement.food_input.value);
+                  }
+};
+
+ko.applyBindings(viewModel);

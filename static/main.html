@@ -22,12 +22,11 @@
         <div class="container">
 
             <div class="row form-group center-block">
-                <form>
+                <form data-bind="submit: searchFood">
                     <div id="custom-search-input" class="col-xs-7">
                         <div class="form-group col-md-12">
                         <h1>What food are you interested in?</h1>
                             <input type="search" class="search-query form-control" id="food_input" placeholder="turkey">
-                            <button type="submit" class="btn btn-primary" formaction="/data">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -38,6 +37,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="/static/js/bootstrap.min.js"></script>
+        <script src='/static/js/knockout-3.3.0.js'></script>
         <script src="/static/js/main.js"></script>
     </body>
 </html>
