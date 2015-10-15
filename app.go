@@ -1,11 +1,18 @@
 package main
 
 import (
+	"encoding/json"
 	"github.com/gorilla/mux"
 	"io"
 	"log"
 	"net/http"
 )
+
+type Data struct {
+	ID               int
+	Name             string
+	GallonPerCalorie float64
+}
 
 func main() {
 
@@ -27,5 +34,11 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 func dataHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	io.WriteString(w, "Hello, "+vars["food"]+"!")
+	data := Data{
+		ID:               1,
+		Name:             vars["food"],
+		GallonPerCalorie: 1.34,
+	}
+	b, _ := json.Marshal(data)
+	io.WriteString(w, string(b))
 }
