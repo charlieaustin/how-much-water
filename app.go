@@ -26,5 +26,6 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func dataHandler(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "Hello, world!")
+	vars := mux.Vars(r)
+	io.WriteString(w, "Hello, "+vars["food"]+"!")
 }
